@@ -22,7 +22,7 @@
 
 set -euo pipefail
 
-TEMPDIR="/tmp/"
+TEMPDIR=$(mktemp -d -p /tmp)
 DESTDIR="/usr/share/PolicyDefinitions/"
 
 SOURCE_URL="https://download.microsoft.com/download/3/0/6/30680643-987a-450c-b906-a455fff4aee8/Administrative%20Templates%20(.admx)%20for%20Windows%2010%20October%202020%20Update.msi"
