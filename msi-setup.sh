@@ -83,9 +83,14 @@ extract_files()
 {
   msiextract "$TEMPDIR/package.msi" -C "$TEMPDIR"
   SOURCEDIR=$(find "$TEMPDIR" -type d -name "PolicyDefinitions" -print | head -n 1)
-  cd "$SOURCEDIR"
-  mkdir "${DESTDIR}"
-  cp -r -- * "${DESTDIR}"
+  if [ -z "$SOURCEDIR" ]; then
+      echo "Policy definitions not found in package!"
+      exit 1
+  else
+      cd "$SOURCEDIR"
+      mkdir "${DESTDIR}"
+      cp -r -- * "${DESTDIR}"
+  fi
 }
 
 main() 
