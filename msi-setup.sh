@@ -20,7 +20,7 @@
 ##
 #########################################################################################################################
 
-set -euo pipefail
+set -eu
 
 TEMPDIR=$(mktemp -d -p /tmp)
 DESTDIR="/usr/share/PolicyDefinitions/"
@@ -84,7 +84,7 @@ extract_files()
   msiextract "$TEMPDIR/package.msi" -C "$TEMPDIR"
   cd "$TEMPDIR/Program Files/Microsoft Group Policy/Windows 10 October 2020 Update (20H2)/PolicyDefinitions/"
   mkdir "${DESTDIR}"
-  cp -r * "${DESTDIR}"
+  cp -r -- * "${DESTDIR}"
 }
 
 main() 
