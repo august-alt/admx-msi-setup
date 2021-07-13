@@ -1,0 +1,13 @@
+name: GPUI CI
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build software using docker
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: sudo apt-get install shellcheck
+      - run: shellcheck *.sh
