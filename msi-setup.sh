@@ -83,6 +83,7 @@ extract_files()
 {
   msiextract "$TEMPDIR/package.msi" -C "$TEMPDIR"
   cd "$TEMPDIR/Program Files/Microsoft Group Policy/Windows 10 October 2020 Update (20H2)/PolicyDefinitions/"
+  mkdir "${DESTDIR}"
   cp -r * "${DESTDIR}"
 }
 
