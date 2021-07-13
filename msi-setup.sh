@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 #########################################################################################################################
 ##
-## Copyright (C) 2021 BaseALT Ltd.
+## Copyright (C) 2021 BaseALT Ltd. <org@basealt.ru>
 ##
 ## This program is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 
 set -euo pipefail
 
-TEMPDIR="/tmp/"
+TEMPDIR=$(mktemp -d -p /tmp)
 DESTDIR="/usr/share/PolicyDefinitions/"
 
 SOURCE_URL="https://download.microsoft.com/download/3/0/6/30680643-987a-450c-b906-a455fff4aee8/Administrative%20Templates%20(.admx)%20for%20Windows%2010%20October%202020%20Update.msi"
@@ -31,6 +31,14 @@ PROG="${0##*/}"
 PROG_VERSION='0.1.0'
 
 SHORT_OPTIONS=':d:hv-:s:'
+
+cleanup()
+{
+	echo "Removing msi-setup temporary files..."
+	rm -rf "$TEMPDIR"
+}
+
+trap cleanup EXIT INT HUP
 
 show_help()
 {
@@ -75,6 +83,7 @@ extract_files()
 {
   msiextract "$TEMPDIR/package.msi" -C "$TEMPDIR"
   cd "$TEMPDIR/Program Files/Microsoft Group Policy/Windows 10 October 2020 Update (20H2)/PolicyDefinitions/"
+  mkdir "${DESTDIR}"
   cp -r * "${DESTDIR}"
 }
 
