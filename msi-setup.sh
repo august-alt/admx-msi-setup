@@ -32,6 +32,14 @@ PROG_VERSION='0.1.0'
 
 SHORT_OPTIONS=':d:hv-:s:'
 
+cleanup()
+{
+	echo "Removing msi-setup temporary files..."
+	rm -rf "$TEMPDIR"
+}
+
+trap cleanup EXIT INT HUP
+
 show_help()
 {
 	cat <<EOF
