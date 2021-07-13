@@ -44,7 +44,7 @@ show_help()
 {
 	cat <<EOF
 $PROG - download msi files and extract them in <destination-directory> default value is $DESTDIR.
-Usage: $PROG [-d <destination-directory>] -s [<msi-source>]
+Usage: $PROG [-d <destination-directory>] [-s <msi-source>]
 
 EOF
 	exit
