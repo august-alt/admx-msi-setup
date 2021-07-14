@@ -3,7 +3,7 @@ name: GPUI CI
 on: [ push, pull_request ]
 
 jobs:
-  build:
+  shellcheck:
     runs-on: ubuntu-latest
     name: Build software using docker
     steps:
@@ -11,3 +11,11 @@ jobs:
         uses: actions/checkout@v2
       - run: sudo apt-get install shellcheck
       - run: shellcheck *.sh
+  build:
+    runs-on: ubuntu-latest
+    name: Build software using docker
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: docker build . --file Dockerfile --tag build-environment
+      - run: docker run -i --log-driver=none -a stdin -a stdout -a stderr -v "$(pwd)":/app build-environment
