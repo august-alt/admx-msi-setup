@@ -1,2 +1,2 @@
 tar: .
-spec: .gear/msi-setup.spec
+spec: .gear/admx-msi-setup.spec

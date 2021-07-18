@@ -1,7 +1,7 @@
-## MSI Setup
+## ADMX MSI Setup
 
 Tool download msi admx/adml package from hardcoded url and extracts them in specified folder.
 
 ```
-Usage: msi-setup.sh [-d <destination-directory>] [-s <msi-source>]
+Usage: admx-msi-setup.sh [-d <destination-directory>] [-s <admx-msi-source>]
 ```

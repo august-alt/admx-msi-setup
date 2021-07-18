@@ -34,7 +34,7 @@ SHORT_OPTIONS=':d:hv-:s:'
 
 cleanup()
 {
-	echo "Removing msi-setup temporary files..."
+	echo "Removing admx-msi-setup temporary files..."
 	rm -rf "$TEMPDIR"
 }
 
@@ -44,7 +44,7 @@ show_help()
 {
 	cat <<EOF
 $PROG - download msi files and extract them in <destination-directory> default value is $DESTDIR.
-Usage: $PROG [-d <destination-directory>] [-s <msi-source>]
+Usage: $PROG [-d <destination-directory>] [-s <admx-msi-source>]
 
 EOF
 	exit

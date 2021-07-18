@@ -1,6 +1,6 @@
 %define _unpackaged_files_terminate_build 1
 
-Name: msi-setup
+Name: admx-msi-setup
 Version: 0.1.0
 Release: alt1
 
@@ -21,11 +21,11 @@ Downlaods specified ADMX package and extracts it in desired location.
 
 %install
 mkdir -p %buildroot/%_bindir
-install -D msi-setup.sh %buildroot/%_bindir/msi-setup
+install -D %name.sh %buildroot/%_bindir/%name
 
 %files
 %doc README.md
-%_bindir/msi-setup
+%_bindir/%name
 
 %changelog
 * Wed Jul 14 2021 Vladimir Rubanov <august@altlinux.org> 0.1.0-alt1

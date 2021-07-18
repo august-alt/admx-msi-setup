@@ -1,4 +1,4 @@
-name: MSI-SETUP
+name: ADMX-MSI-SETUP
 
 on: [ push, pull_request ]
 
