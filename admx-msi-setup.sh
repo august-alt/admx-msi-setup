@@ -88,7 +88,7 @@ extract_files()
       exit 1
   else
       cd "$SOURCEDIR"
-      mkdir "${DESTDIR}"
+      mkdir -p "${DESTDIR}"
       cp -r -- * "${DESTDIR}"
   fi
 }
